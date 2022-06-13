@@ -1,9 +1,11 @@
 import {User} from '../entity/User.js'
 
-class Db{
+export class Db{
     private static instance:Db
-
-    private constructor() {}
+    private users: Array<User>;
+    private constructor() {
+        this.users = new Array<User>()
+    }
 
     public static getInstance(): Db {
         if(!Db.instance) {
@@ -22,5 +24,15 @@ class Db{
         elements.push(new User())
         elements.push(new User())
         return elements
+    }
+
+    public saveOne(user: User|null) {
+        if(user != null) {
+            //save
+        }
+    }
+
+    public updateUser(id:string,user:User):User {
+        return user
     }
 }
