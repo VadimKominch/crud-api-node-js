@@ -14,25 +14,27 @@ export class Db{
         return Db.instance
     }
 
-    public getById(): User {
-        return new User()
+    public getById(id:string): User {
+        return this.users.filter(el=>el.id == id)[0]
     }
 
     public getAll(): Array<User> {
-        const elements = new Array<User>()
-        elements.push(new User())
-        elements.push(new User())
-        elements.push(new User())
-        return elements
+        return this.users
     }
 
     public saveOne(user: User|null) {
         if(user != null) {
-            //save
+            this.users.push(user)
         }
     }
 
-    public updateUser(id:string,user:User):User {
+    public updateUser(id:string,userToUpdate:User):User {
+        const user = this.getById(id)
+        //update
         return user
+    }
+
+    public deleteUser(id:string) {
+        this.users = this.users.filter(el=>el.id != id)
     }
 }
