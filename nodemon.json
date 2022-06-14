@@ -1,0 +1,5 @@
+{
+    "ext":"json,ts",
+    "exec":"tsc && node ./dist/app.js",
+    "include":["src"]   
+}
