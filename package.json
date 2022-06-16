@@ -4,12 +4,12 @@
   "description": "",
   "main": "./dist/app.js",
   "type": "module",
-  "exports":"./dist/app.js",
+  "exports": "./dist/app.js",
   "scripts": {
     "script:dev": "nodemon --config nodemon.json",
     "script:prod": "node dist/app.js",
     "lint": "npx eslint . --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tsc && mocha 'dist/test/*.js'"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/VadimKominch/crud-api-node-js#readme",
   "devDependencies": {
+    "@types/mocha": "^9.1.1",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
@@ -33,6 +34,9 @@
   },
   "dependencies": {
     "@types/node": "^17.0.42",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0",
     "uuid": "^8.3.2"
   }
 }

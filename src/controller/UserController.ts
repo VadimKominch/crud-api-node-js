@@ -1,7 +1,7 @@
 import { UserService } from '../service/UserService.js'
 import {User} from '../entity/User.js'
 
-class UserController {
+export class UserController {
     private static instance:UserController
     
     private service:UserService
@@ -36,6 +36,4 @@ class UserController {
     public deleteUser(id:string) {
         this.service.deleteUser(id)
     }
-
-
 }
