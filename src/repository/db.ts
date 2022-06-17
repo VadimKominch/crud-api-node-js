@@ -1,4 +1,5 @@
 import {User} from '../entity/User.js'
+import { v4 as uuidV4 } from 'uuid';
 
 export class Db{
     private static instance:Db
@@ -15,7 +16,7 @@ export class Db{
     }
 
     public getById(id:string): User {
-        return this.users.filter(el=>el.id == id)[0]
+        return this.users[parseInt(id)]
     }
 
     public getAll(): Array<User> {
@@ -24,17 +25,21 @@ export class Db{
 
     public saveOne(user: User|null) {
         if(user != null) {
+            user.id = uuidV4()
             this.users.push(user)
+            return user
         }
     }
 
     public updateUser(id:string,userToUpdate:User):User {
         const user = this.getById(id)
-        //update
+        user.age = userToUpdate.age
+        user.hobbies = userToUpdate.hobbies
+        user.username = userToUpdate.username
         return user
     }
 
     public deleteUser(id:string) {
-        this.users = this.users.filter(el=>el.id != id)
+        delete this.users[parseInt(id)]
     }
 }

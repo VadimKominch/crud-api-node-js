@@ -9,7 +9,7 @@
     "script:dev": "nodemon --config nodemon.json",
     "script:prod": "node dist/app.js",
     "lint": "npx eslint . --ext .ts",
-    "test": "tsc && mocha 'dist/test/*.js'"
+    "test": "tsc && mocha --timeout 10000 'dist/test/*.js'"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "@types/node": "^17.0.42",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
+    "dotenv": "^16.0.1",
     "mocha": "^10.0.0",
     "uuid": "^8.3.2"
   }
